@@ -15,3 +15,9 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Elior.Rafalsky-TestSub(0d645574-51fe-47fd-8fcb-cd1bfbd0444d)'
+    appType: 'webAppLinux'
+    appName: 'my-app-dotnet123444432'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
